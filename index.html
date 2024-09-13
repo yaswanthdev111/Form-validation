@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form">
+      <label for="USERNAME"> USERNAME </label>
+      <input type="text" id="ip1" /><br /><span id="span" style="display: none"
+        >ENTER CORRECT USER NAME
+      </span>
+      <br /><br />
+      <span></span>
+      <label for="MOBILE NUMBER">MOBILE NUMBER</label>
+      <input type="text" id="ip2" /><br />
+      <span id="span1" style="display: none"> ENTER CORRECT MOBILE NUMBER</span
+      ><br /><br />
+      <label for="password">PASSWORD</label>
+
+      <input type="text" id="ip3" />
+
+      <br />
+      <span id="span2" style="display: none">ENTER CORRECT PASSWORD</span><br />
+
+      <input type="submit" />
+
+      <script>
+        let ip1 = document.getElementById("ip1");
+        let ip2 = document.getElementById("ip2");
+        let span = document.getElementById("span");
+        let ip3 = document.getElementById("ip3");
+        pswdRegex = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{4}/;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          if (ip1.value == "") {
+            ip1.style.border = "2px solid red";
+            span.style.display = "block";
+            span.style.color = "red";
+          }
+          if (ip2.value.length <= 9) {
+            span1.style.display = "block";
+            span1.style.color = "red";
+            ip2.style.border = "2px solid red";
+          }
+
+          if (!pswdRegex.test(ip3.value)) {
+            ip3.style.border = "2px solid red";
+            span2.style.display = "block";
+            span2.style.color = "red";
+          }
+        });
+      </script>
+    </form>
+  </body>
+</html>
